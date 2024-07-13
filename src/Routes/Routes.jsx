@@ -7,11 +7,13 @@ import AllCraftItems from "../pages/Home/AllCraftItems";
 import AddCraftItem from "../pages/Home/AddCraftItem";
 import MyCraftList from "../pages/Home/MyCraftList";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../pages/Home/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",

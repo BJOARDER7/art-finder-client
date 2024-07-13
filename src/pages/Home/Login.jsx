@@ -51,6 +51,7 @@ const {logIn, googleLogin, githubLogin} = useContext(AuthContext);
         .then(result => {
           const loggedUser = result.user;
           console.log(loggedUser);
+          navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
           console.log(error);
@@ -61,6 +62,7 @@ const {logIn, googleLogin, githubLogin} = useContext(AuthContext);
         githubLogin()
         .then(result => {
           console.log(result.user);
+          navigate(location?.state ? location.state : '/');
         })
         .catch(error => {
           console.log(error)
