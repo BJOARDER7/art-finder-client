@@ -5,14 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyAmyaAljivRCfAzPgZgMvBGtWyfJB4Vc1Q",
-  authDomain: "art-finder-firebase.firebaseapp.com",
-  projectId: "art-finder-firebase",
-  storageBucket: "art-finder-firebase.appspot.com",
-  messagingSenderId: "472010933339",
-  appId: "1:472010933339:web:97862ce1425b4c661eeb7e"
+    apiKey: import.meta.env.VITE_APIKEY,
+    authDomain: import.meta.env.VITE_AUTHDOMAIN,
+    projectId: import.meta.env.VITE_PROJECTID,
+    storageBucket: import.meta.env.VITE_STORAGEBUCKET,
+    messagingSenderId: import.meta.env.VITE_MESSAGINGSENDERID,
+    appId: import.meta.env.VITE_APPID
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export default app;
+
