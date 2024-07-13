@@ -3,6 +3,9 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Home/Login";
 import Register from "../pages/Home/Register";
+import AllCraftItems from "../pages/Home/AllCraftItems";
+import AddCraftItem from "../pages/Home/AddCraftItem";
+import MyCraftList from "../pages/Home/MyCraftList";
 
 const router = createBrowserRouter([
     {
@@ -20,6 +23,18 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>
+            },
+            {
+                path: "/allcraft",
+                element: <AllCraftItems></AllCraftItems>
+            },
+            {
+                path: "/addcraft",
+                element: <AddCraftItem></AddCraftItem>
+            },
+            {
+                path: "/mycraft",
+                element: <MyCraftList></MyCraftList>
             }
         ]
     }
