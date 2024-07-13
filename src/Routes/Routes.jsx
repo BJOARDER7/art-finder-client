@@ -6,6 +6,7 @@ import Register from "../pages/Home/Register";
 import AllCraftItems from "../pages/Home/AllCraftItems";
 import AddCraftItem from "../pages/Home/AddCraftItem";
 import MyCraftList from "../pages/Home/MyCraftList";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -30,11 +31,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addcraft",
-                element: <AddCraftItem></AddCraftItem>
+                element: <PrivateRoute><AddCraftItem></AddCraftItem></PrivateRoute>
             },
             {
                 path: "/mycraft",
-                element: <MyCraftList></MyCraftList>
+                element: <PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>
             }
         ]
     }

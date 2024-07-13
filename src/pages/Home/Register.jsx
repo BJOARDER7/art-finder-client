@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -18,15 +20,15 @@ const Register = () => {
     
         // password validation
         if(password.length < 6){
-          console.log('Password at least 6 character');     
+          toast.error('Password at least 6 character');     
           return;
         }
         else if (!/[A-Z]/.test(password)){
-            console.log('Password must have an Uppercase letter');      
+          toast.error('Password must have an Uppercase letter');      
           return;
         }
         else if (!/[a-z]/.test(password)){
-            console.log('Password must have a Lowercase letter');      
+          toast.error('Password must have a Lowercase letter');      
           return;
         }
     
@@ -36,10 +38,17 @@ const Register = () => {
       .then(result => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        Swal.fire({
+          position: "top",
+          icon: "success",
+          title: "You have register successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
         
       })
       .catch(error => {      
-        console.error(error.message);    
+        toast.error(error.message);    
       })
     
       }
@@ -92,7 +101,7 @@ const Register = () => {
       
     </div>
   </div>
-  
+  <div><Toaster/></div>
 </div>
     );
 };

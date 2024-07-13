@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
@@ -22,13 +23,26 @@ const {logIn, googleLogin, githubLogin} = useContext(AuthContext);
         .then(result => {
           const loggedUser = result.user;
           console.log(loggedUser);
+          Swal.fire({
+            position: "top",
+            icon: "success",
+            title: "You have login successfully",
+            showConfirmButton: false,
+            timer: 1500
+          });
     
           // navigation after login
           navigate(location?.state ? location.state : '/');
     
         })
         .catch(error => {
-          console.log(error)
+          Swal.fire({
+            position: "top",
+            icon: "error",
+            title: "Your email or password doesn’t match",
+            showConfirmButton: false,
+            timer: 1500
+          });
         })
       }
 
