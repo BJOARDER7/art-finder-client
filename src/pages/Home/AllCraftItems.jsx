@@ -2,8 +2,10 @@
 
 const AllCraftItems = () => {
     return (
-        <div>
-            <h2>all craft</h2>
+        <div className="grid grid-cols-5">
+            {
+                
+            }
         </div>
     );
 };
