@@ -9,11 +9,13 @@ const Slider = () => {
 
       
     return (
-        <AwesomeSlider animation="cubeAnimation">
+        <div>
+            <AwesomeSlider animation="cubeAnimation">
         <div data-src={slider1} />
         <div data-src={slider2} />
         <div data-src={slider3} />
       </AwesomeSlider>
+        </div>
     );
 };
 
