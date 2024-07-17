@@ -14,15 +14,15 @@ const Home = () => {
     return (
         <div>
           <Navbar></Navbar> 
-          <div className="flex w-full">
-            <div className="w-4/5">
+          <div className="flex w-full gap-4">
+            <div className="w-3/4 p-4">
               <Slider></Slider>
             </div>
-            <div className="w-1/5">
+            <div className="w-1/4 p-4">
               <Advertisement></Advertisement>
             </div>
           </div>
-          <ExtraSection></ExtraSection>
+          <ExtraSection ></ExtraSection>
           <div className="grid grid-cols-6 gap-4">
           {
               allCraft.slice(0,6).map(craft => <CraftItems

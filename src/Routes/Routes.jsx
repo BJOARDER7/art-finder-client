@@ -3,7 +3,7 @@ import Root from "../layout/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Home/Login";
 import Register from "../pages/Home/Register";
-import AllCraftItems from "../pages/Home/AllCraftItems";
+import AllCraftItems from "../pages/Nested/AllCraftItems";
 import AddCraftItem from "../pages/Home/AddCraftItem";
 import MyCraftList from "../pages/Home/MyCraftList";
 import PrivateRoute from "./PrivateRoute";
@@ -30,7 +30,8 @@ const router = createBrowserRouter([
             },
             {
                 path: "/allcraft",
-                element: <AllCraftItems></AllCraftItems>                
+                element: <AllCraftItems></AllCraftItems>,
+                loader: () => fetch('http://localhost:5000/craft')                
             },
             {
                 path: "/addcraft",
