@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const AddCraftItem = () => {
+  const {user} = useContext(AuthContext);
+
   const handleAddCraft = (event) => {
     event.preventDefault();
 
@@ -175,7 +179,7 @@ const AddCraftItem = () => {
             </label>
             <label className="input-group">
               <input
-                type="time"
+                type="text"
                 name="time"
                 placeholder="Processing Time
 "
@@ -193,7 +197,8 @@ const AddCraftItem = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="name"
+                name="name" 
+                defaultValue={user.displayName}               
                 placeholder="User Name"
                 className="input input-bordered w-full"
               />
@@ -224,6 +229,7 @@ const AddCraftItem = () => {
               <input
                 type="email"
                 name="email"
+                defaultValue={user.email}
                 placeholder="User Email"
                 className="input input-bordered md:w-full"
               />

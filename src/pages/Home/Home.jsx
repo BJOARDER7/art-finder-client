@@ -1,12 +1,16 @@
+import { useLoaderData } from "react-router-dom";
 import Footer from "../Shared/Footer";
 import Navbar from "../Shared/Navbar";
 import Advertisement from "./Advertisement";
 import ArtCraftCategories from "./ArtCraftCategories";
-import CraftItems from "./CraftItems";
 import ExtraSection from "./ExtraSection";
 import Slider from "./Slider";
+import CraftItems from "./CraftItems";
 
 const Home = () => {
+  const allCraft = useLoaderData();
+   
+
     return (
         <div>
           <Navbar></Navbar> 
@@ -19,7 +23,14 @@ const Home = () => {
             </div>
           </div>
           <ExtraSection></ExtraSection>
-          <CraftItems></CraftItems>
+          <div className="grid grid-cols-6 gap-4">
+          {
+              allCraft.slice(0,6).map(craft => <CraftItems
+              key={craft._id}
+              craft={craft}
+              ></CraftItems>)  
+            }
+          </div>
           <ArtCraftCategories></ArtCraftCategories>
           <Footer></Footer>
         </div>        
