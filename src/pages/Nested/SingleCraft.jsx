@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 
 const SingleCraft = ({craft}) => {
@@ -35,7 +36,9 @@ const SingleCraft = ({craft}) => {
         </td>
         
         <th>
+            <Link to={`/details/${craft._id}`}>
           <button className="btn btn-ghost btn-xs">View Details</button>
+          </Link>
         </th>
       </tr>
     );

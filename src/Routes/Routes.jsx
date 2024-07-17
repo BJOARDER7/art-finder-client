@@ -8,6 +8,7 @@ import AddCraftItem from "../pages/Home/AddCraftItem";
 import MyCraftList from "../pages/Home/MyCraftList";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/Home/ErrorPage";
+import DetailsPage from "../pages/Nested/DetailsPage";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
                 path: "/allcraft",
                 element: <AllCraftItems></AllCraftItems>,
                 loader: () => fetch('http://localhost:5000/craft')                
+            },
+            {
+                path: "/details/:id",
+                element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
             },
             {
                 path: "/addcraft",
