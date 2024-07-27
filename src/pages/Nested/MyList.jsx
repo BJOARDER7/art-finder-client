@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 
 const MyList = ({list}) => {
-  // const [users, setUsers] = useState(loadedUsers);
+
     const {_id, photo, item, price, rating, customization, status} = list;
 
     const handleDelete = _id => {
@@ -44,7 +44,7 @@ const MyList = ({list}) => {
         <img
           src={photo}
           alt="Craft"
-          className="rounded-xl w-auto h-24 md:h-48" />
+          className="rounded-xl w-auto h-48" />
       </figure>
       <div className="card-body items-start text-start">
         <h2 className="card-title text-xl md:text-2xl font-bold">{item}</h2>
@@ -57,7 +57,7 @@ const MyList = ({list}) => {
             <p>Stock Status: {status}</p>
         </div>
         
-        <div className="card-actions flex mx-auto">
+        <div className="card-actions flex space-x-4 mx-auto">
           <Link to={`/mycraft/${_id}`}>
             <button className="btn btn-primary">Update</button>
           </Link>         

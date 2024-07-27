@@ -1,8 +1,10 @@
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const UpdatePage = () => {
-  // const craft = useLoaderData();
-  //   const { _id, item, subcategory, description, photo, price, rating, status, time, name, email } = craft;
+  const craft = useLoaderData();
+    const { _id, item, subcategory, description, photo, price, rating, status, customization, time, name, email } = craft;
 
   const handleUpdate = event => {
     event.preventDefault();
@@ -62,6 +64,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="item"
+                defaultValue={item}
                 placeholder="Craft Item Name"
                 className="input input-bordered w-full"
               />
@@ -76,6 +79,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="subcategory"
+                defaultValue={subcategory}
                 placeholder="Sub Category Name"
                 className="input input-bordered w-full"
               />
@@ -92,6 +96,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="description"
+                defaultValue={description}
                 placeholder="Short Description"
                 className="input input-bordered w-full"
               />
@@ -108,6 +113,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="photo"
+                defaultValue={photo}
                 placeholder="Photo URL"
                 className="input input-bordered w-full"
               />
@@ -125,6 +131,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="price"
+                defaultValue={price}
                 placeholder="Price"
                 className="input input-bordered w-full"
               />
@@ -139,6 +146,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="rating"
+                defaultValue={rating}
                 placeholder="Rating"
                 className="input input-bordered w-full"
               />
@@ -156,6 +164,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="status"
+                defaultValue={status}
                 placeholder="In stock / Made to Order"
                 className="input input-bordered w-full"
               />
@@ -170,6 +179,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="time"
+                defaultValue={time}
                 placeholder="Processing Time
 "
                 className="input input-bordered w-full"
@@ -187,7 +197,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="name" 
-                // defaultValue={user.displayName}               
+                defaultValue={name}              
                 placeholder="User Name"
                 className="input input-bordered w-full"
               />
@@ -202,6 +212,7 @@ const UpdatePage = () => {
               <input
                 type="text"
                 name="customization"
+                defaultValue={customization}
                 placeholder="Yes or No"
                 className="input input-bordered w-full"
               />
@@ -218,7 +229,7 @@ const UpdatePage = () => {
               <input
                 type="email"
                 name="email"
-                // defaultValue={user.email}
+                defaultValue={email}
                 placeholder="User Email"
                 className="input input-bordered md:w-full"
               />

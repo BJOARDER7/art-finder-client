@@ -14,7 +14,7 @@ const MyCraftList = () => {
     <div>
       <div className="flex flex-col justify-center items-center h-24 mb-4">
         <h2 className="text-xl md:text-2xl font-bold">Filter By:</h2>
-        <select className="select select-error w-1/6 max-w-xs my-2">
+        <select className="select select-error w-1/2 md:w-1/6 max-w-xs my-2">
           <option disabled selected>
             Customization
           </option>
@@ -22,7 +22,7 @@ const MyCraftList = () => {
           <option value="no">No</option>
         </select>
       </div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-col-1 md:grid-cols-4 gap-4">
         {myList.map((list) => (
           <MyList key={list._id} list={list}></MyList>
         ))}
