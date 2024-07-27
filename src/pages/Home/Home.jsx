@@ -5,9 +5,9 @@ import ExtraSection from "./ExtraSection";
 import Slider from "./Slider";
 import CraftItems from "./CraftItems";
 
+
 const Home = () => {
-  const allCraft = useLoaderData();
-   console.log(allCraft)
+  const allCraft = useLoaderData();  
 
     return (
         <div>          

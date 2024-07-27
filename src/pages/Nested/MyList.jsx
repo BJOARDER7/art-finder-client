@@ -1,10 +1,10 @@
-// import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
-const MyList = ({list}) => {
-
+const MyList = ({list, crafts, setCrafts}) => {
+    
     const {_id, photo, item, price, rating, customization, status} = list;
 
     const handleDelete = _id => {
@@ -24,14 +24,14 @@ const MyList = ({list}) => {
                   .then(res => res.json())
                   .then(data => {
                       if (data.deletedCount > 0) {
-                          refetch();
+                          
                           Swal.fire(
                               'Deleted!',
-                              'Your file has been deleted.',
+                              'Your craft has been deleted.',
                               'success'
                           )
-                          // const remaining = users.filter(user => user._id !== _id);
-                          // setUsers(remaining);
+                          const remaining = crafts.filter(craft => craft._id !== _id);
+                          setCrafts(remaining);
                       }
                   })
           }
