@@ -50,13 +50,13 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box mt-3 w-44 md:w-52 p-2 shadow z-10"
           >
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-4xl">
-          Art<span className="">F</span>inder
+        <a className="btn btn-ghost text-xl md:text-4xl font-bold">
+          Art <span className="custom-font1 ps-2 tracking-tighter">f</span>inder
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -82,10 +82,10 @@ const Navbar = () => {
         ) : (
           <div className="flex items-center gap-2">
             <Link to="/login">
-          <button className="btn btn-accent w-24">Login</button>
+          <button className="btn btn-accent w-16 md:w-24">Login</button>
         </Link>
         <Link to="/register">
-          <button className="btn btn-accent w-24">Register</button>
+          <button className="btn btn-accent w-16 md:w-24">Register</button>
         </Link>
           </div>
         )}

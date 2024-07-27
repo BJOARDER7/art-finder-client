@@ -6,11 +6,10 @@ import slider3 from "../../assets/slider3.png";
 
 
 const Slider = () => {  
-
       
     return (
         <div>
-            <AwesomeSlider animation="cubeAnimation">
+    <AwesomeSlider animation="cubeAnimation">
         <div data-src={slider1} />
         <div data-src={slider2} />
         <div data-src={slider3} />

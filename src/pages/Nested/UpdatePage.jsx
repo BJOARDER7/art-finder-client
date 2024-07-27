@@ -1,11 +1,10 @@
-import { useContext } from "react";
-import Swal from "sweetalert2";
-import { AuthContext } from "../../provider/AuthProvider";
 
-const AddCraftItem = () => {
-  const {user} = useContext(AuthContext);
 
-  const handleAddCraft = (event) => {
+const UpdatePage = () => {
+  // const craft = useLoaderData();
+  //   const { _id, item, subcategory, description, photo, price, rating, status, time, name, email } = craft;
+
+  const handleUpdate = event => {
     event.preventDefault();
 
     const form = event.target;
@@ -22,49 +21,37 @@ const AddCraftItem = () => {
     const name = form.name.value;
     const email = form.email.value;
 
-    const newCraft = {
-      item,
-      subcategory,
-      description,
-      photo,
-      price,
-      rating,
-      status,
-      time,
-      customization,
-      name,
-      email,
-    };
+    const updatedCraft = { item, subcategory, description, photo, price, rating, status, time, customization, name, email}
 
-    console.log(newCraft);
+    console.log(updatedCraft);
 
     // send data to the server
-    fetch("http://localhost:5000/craft", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newCraft),
+    fetch(`http://localhost:5000/craft/${_id}`, {
+        method: 'PUT',
+        headers: {
+            'content-type': 'application/json'
+        },
+        body: JSON.stringify(updatedCraft)
     })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-        if (data.insertedId) {
-          Swal.fire({
-            title: "Success!",
-            text: "Craft Added Successfully",
-            icon: "success",
-            confirmButtonText: "OK",
-          });
-        }
-      });
-  };
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.modifiedCount > 0) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: 'Coffee Updated Successfully',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                })
+            }
+        })
+}
 
-  return (
-    <div className="bg-[#F4F3F0] p-8">
-      <h2 className="text-3xl font-extrabold text-center">Add Art & Craft</h2>
+    return (
+        <div className="bg-[#F4F3F0] p-8">
+      <h2 className="text-3xl font-extrabold text-center">Update Art & Craft</h2>
       <div className="flex justify-center">
-      <form onSubmit={handleAddCraft}>
+      <form onSubmit={handleUpdate}>
         <div className="md:flex mb-4">
           {/* Item Name */}
           <div className="form-control md:w-1/2">
@@ -74,7 +61,7 @@ const AddCraftItem = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="item"                
+                name="item"
                 placeholder="Craft Item Name"
                 className="input input-bordered w-full"
               />
@@ -200,7 +187,7 @@ const AddCraftItem = () => {
               <input
                 type="text"
                 name="name" 
-                defaultValue={user.displayName}               
+                // defaultValue={user.displayName}               
                 placeholder="User Name"
                 className="input input-bordered w-full"
               />
@@ -231,7 +218,7 @@ const AddCraftItem = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue={user.email}
+                // defaultValue={user.email}
                 placeholder="User Email"
                 className="input input-bordered md:w-full"
               />
@@ -241,13 +228,13 @@ const AddCraftItem = () => {
 
         <input
           type="submit"
-          value="Add Craft"
+          value="Update"
           className="btn btn-outline md:w-full"
         />
       </form>
       </div>
     </div>
-  );
+    );
 };
 
-export default AddCraftItem;
+export default UpdatePage;

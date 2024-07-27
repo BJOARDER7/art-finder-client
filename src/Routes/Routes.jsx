@@ -9,6 +9,7 @@ import MyCraftList from "../pages/Home/MyCraftList";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/Home/ErrorPage";
 import DetailsPage from "../pages/Nested/DetailsPage";
+import UpdatePage from "../pages/Nested/UpdatePage";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,13 @@ const router = createBrowserRouter([
             },
             {
                 path: "/mycraft",
-                element: <PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>
+                element: <PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>,
+                loader: () => fetch('http://localhost:5000/craft')
+            },
+            {
+                path: "/mycraft/:id",
+                element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
+                loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
             }
         ]
     }
