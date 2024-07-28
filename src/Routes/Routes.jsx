@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/Home/ErrorPage";
 import DetailsPage from "../pages/Nested/DetailsPage";
 import UpdatePage from "../pages/Nested/UpdatePage";
+import ArtCraftCategories from "../pages/Home/ArtCraftCategories";
 
 const router = createBrowserRouter([
     {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
                 path: "/",
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/craft')
-            },
+            },            
             {
                 path: "/login",
                 element: <Login></Login>
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
                 loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
             }
+           
         ]
     }
 ])
