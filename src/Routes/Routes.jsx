@@ -10,7 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../pages/Home/ErrorPage";
 import DetailsPage from "../pages/Nested/DetailsPage";
 import UpdatePage from "../pages/Nested/UpdatePage";
-import ArtCraftCategories from "../pages/Home/ArtCraftCategories";
+
 
 const router = createBrowserRouter([
     {
@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/craft')
+                loader: () => fetch('https://art-finder-server.vercel.app/craft')
             },            
             {
                 path: "/login",
@@ -34,12 +34,12 @@ const router = createBrowserRouter([
             {
                 path: "/allcraft",
                 element: <AllCraftItems></AllCraftItems>,
-                loader: () => fetch('http://localhost:5000/craft')                
+                loader: () => fetch('https://art-finder-server.vercel.app/craft')                
             },
             {
                 path: "/details/:id",
                 element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
+                loader: ({params}) => fetch(`https://art-finder-server.vercel.app/craft/${params.id}`)
             },
             {
                 path: "/addcraft",
@@ -48,12 +48,12 @@ const router = createBrowserRouter([
             {
                 path: "/mycraft",
                 element: <PrivateRoute><MyCraftList></MyCraftList></PrivateRoute>,
-                loader: () => fetch('http://localhost:5000/craft')
+                loader: () => fetch('https://art-finder-server.vercel.app/craft')
             },
             {
                 path: "/mycraft/:id",
                 element: <PrivateRoute><UpdatePage></UpdatePage></PrivateRoute>,
-                loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
+                loader: ({params}) => fetch(`https://art-finder-server.vercel.app/craft/${params.id}`)
             }
            
         ]

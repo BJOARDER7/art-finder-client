@@ -3,7 +3,7 @@
 * Website Name
     * Art Finder
 * Website live URL
-    * [(http://localhost:5173/)](http://localhost:5173/)
+    * https://art-finder-firebase.web.app
 * Features of website
     * Art & Craft items
     * Register & Login section

@@ -28,7 +28,7 @@ const UpdatePage = () => {
     console.log(updatedCraft);
 
     // send data to the server
-    fetch(`http://localhost:5000/craft/${_id}`, {
+    fetch(`https://art-finder-server.vercel.app/craft/${_id}`, {
         method: 'PUT',
         headers: {
             'content-type': 'application/json'
@@ -41,7 +41,7 @@ const UpdatePage = () => {
             if (data.modifiedCount > 0) {
                 Swal.fire({
                     title: 'Success!',
-                    text: 'Coffee Updated Successfully',
+                    text: 'Craft Updated Successfully',
                     icon: 'success',
                     confirmButtonText: 'OK'
                 })

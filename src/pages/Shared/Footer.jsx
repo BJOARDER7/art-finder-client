@@ -6,7 +6,7 @@ import logo from "../../assets/christmas.jpg";
 const Footer = () => {
     return (
 <footer className="bg-black text-primary-content p-4">
-      <div className="md:flex items-center justify-between">
+      <div className="flex items-center justify-between mb-4">
         <div>
           <img className="w-12 h-12 rounded-full" src={logo} alt="" />
           <p className="font-bold">
@@ -20,7 +20,7 @@ const Footer = () => {
 
         <div>
             <h3 className="text-xl mb-2">Connect with</h3>
-          <div className="md:grid grid-flow-col gap-4">
+          <div className="grid grid-flow-col gap-4">
             <a href="https://twitter.com/home">
               <FaTwitter></FaTwitter>
             </a>
